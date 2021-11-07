@@ -24,7 +24,7 @@ void *ft_memset(void *str, int c, size_t n)
  new = (unsigned char *)str;
  
  i = 0;
- while(new[i] && i < n)
+ while(i < n)
  {
   new[i] = c;
   i++;
@@ -33,10 +33,10 @@ void *ft_memset(void *str, int c, size_t n)
 }
 /*
 int main () {
-   char str[] = "This is string.h library function";
+   char str[] = "AAAAAAAAAAAAA";
    puts(str);
 
-   memset(str,'5',51);
+   memset(str,'A',2);
    puts(str);
    
    return(0);

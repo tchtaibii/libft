@@ -40,9 +40,9 @@ int	ft_atoi(const char *str)
         return (-1);
 
 	return (o * r);
-}
+}/*
 int main()
 {
 	printf("my    atoi = %d\n",ft_atoi("-9223372036854775809"));
     printf("their atoi = %d",atoi("-9223372036854775809"));
-}
+}*/
