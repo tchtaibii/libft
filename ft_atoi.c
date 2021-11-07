@@ -14,12 +14,12 @@
 
 int	ft_atoi(const char *str)
 {
-	unsigned long    r;
-	int    i;
-	int    o;
+	unsigned long	r;
+	int				i;
+	int				o;
 
 	i = 0;
-    r = 0;
+	r = 0;
 	o = 1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
@@ -34,15 +34,9 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - '0');
 		i++;
 	}
-    if (r >= 9223372036854775807 && o == -1)
-        return (0);
-    else if (r >=  9223372036854775807 && o == 1)
-        return (-1);
-
+	if (r >= 9223372036854775807 && o == -1)
+		return (0);
+	else if (r >= 9223372036854775807 && o == 1)
+		return (-1);
 	return (o * r);
-}/*
-int main()
-{
-	printf("my    atoi = %d\n",ft_atoi("-9223372036854775809"));
-    printf("their atoi = %d",atoi("-9223372036854775809"));
-}*/
+}

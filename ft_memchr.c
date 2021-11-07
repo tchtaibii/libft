@@ -14,35 +14,16 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*new;
+	size_t			i;
+	unsigned char	*new;
 
-	new = (char *)str;
+	new = (unsigned char *)str;
 	i = 0;
 	while (i < n)
 	{
-		if (new[i] == c)
+		if (new[i] == (unsigned char)c)
 			return (&new[i]);
 		i++;
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main () {
-   const char str[] = "http://www.tchtaibi.com";
-   const char ch = '.';
-   char *ret;
-
-   ret = memchr(str, ch, strlen(str));
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
-
- ret = ft_memchr(str, ch, strlen(str));
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
-
-   return(0);
-}*/

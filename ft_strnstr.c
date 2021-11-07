@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-char *ft_strnstr (const char *str1, const char *str2, size_t len)
-{
- size_t	i;
-	size_t	j;
- char *s1;
- char *s2;
 
- s1 = (char *) str1;
- s2 = (char *) str2;
+char	*ft_strnstr(const char *str1, const char *str2, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*s1;
+	char	*s2;
+
+	s1 = (char *) str1;
+	s2 = (char *) str2;
 	i = 0;
 	if (s2[0] == '\0')
 		return (s1);
@@ -37,24 +37,3 @@ char *ft_strnstr (const char *str1, const char *str2, size_t len)
 	}
 	return (0);
 }
-/*
-int main () {
-   const char s1[20] = "TutorialsPoint";
-   const char s2[10] = "Point";
-   char *ret;
-
-   ret = ft_strnstr(s1, s2,13);
-   printf("The substring is: %s\n", ret);
-   ret = strnstr(s1, s2,13);
-   printf("The substring is: %s\n", ret);
-
-   return(0);
-}
-int main()
-{
-	char* k = "this is our school";
-	char* l = "is";
-	printf("%s\n",ft_strnstr(k, l, 4));
-	printf("%s", strnstr(k, l, 4));
-	return(0);
-}*/
