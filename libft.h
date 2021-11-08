@@ -12,9 +12,11 @@
 
 #ifndef LIBFT_H
 #define LIBFT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int     ft_isalpha(int c);
 int     ft_isdigit(int c);
@@ -40,6 +42,8 @@ void    *ft_memmove(void *s1, const void *s2, size_t n);
 void    *ft_memchr(const void *str, int c, size_t n);
 void    *ft_calloc(size_t size, size_t n);
 void    ft_bzero(void *str, size_t n);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
 size_t  ft_strlen(const char *str);
 size_t  ft_strlcpy(char *s1, const char *s2, size_t n);
 size_t  ft_strlcat(char *s1, const char *s2, size_t n);
