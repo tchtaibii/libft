@@ -44,6 +44,8 @@ void    *ft_calloc(size_t size, size_t n);
 void    ft_bzero(void *str, size_t n);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void    ft_putnbr_fd(int n, int fd);
+void    ft_putendl_fd(char *s, int fd);
 size_t  ft_strlen(const char *str);
 size_t  ft_strlcpy(char *s1, const char *s2, size_t n);
 size_t  ft_strlcat(char *s1, const char *s2, size_t n);

@@ -16,7 +16,7 @@ size_t ft_strlenn(char const *str, char sep)
     size_t i;
 
     i = 0;
-    while(str[i] != sep)
+    while(str[i] && str[i] != sep)
         i++;
     return (i);
 }
@@ -25,11 +25,14 @@ char **ft_split(char const *s, char c)
 	size_t i;
     size_t ii;
     size_t j;
+	size_t k;
     size_t count;
 	char **new;
 
     count = 0;
     i = 0;
+	k = 0;
+	j = 0;
     ii = 0;
     while (s[i])
     {
@@ -38,23 +41,23 @@ char **ft_split(char const *s, char c)
         i++;
     }
     i = 0;
-    *new = malloc(count * (ft_strlen(s) + 1));
+    *new = malloc(count * (ft_strlen(s) + 1)sizeof(char *));
     while (count > i)
     {
-        new[i] = malloc (ft_strlenn())
-    }
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] == c)
-        {
-            new[j][ii] = '\0';
-            j++;
-            ii = 0;
-        }
-        new[j][ii] = s[ii];
-        i++;
-        ii++;
+        new[i] = malloc(ft_strlenn(s,c) + 1);
+		while (s[k])
+		{
+        	if (s[k] == c)
+			{
+				new[j][ii] = '\0';
+				j++;
+				ii = 0;
+			}
+			new[j][ii] = s[ii];
+			i++;
+			ii++;
+		}
+		i++;
     }
     new[j][ii] = '\0';
     return (new);
@@ -69,7 +72,7 @@ int main()
     i = 0;
     while (new[i])
     {
-        prsize_tf("%s",new[i]);
+        printf("%s",new[i]);
         i++;
     }
 }
