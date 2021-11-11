@@ -6,49 +6,65 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 23:23:56 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/10 23:48:10 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/11 21:24:14 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_itoa(int n)
+char	*put_in_str(int j, int i, long nb)
 {
-    char c;
-    int i;
-    int tmp;
-    int j;
-    int k;
-    char *str;
-    int count;
+	char	*str;
 
-    j = 1;
-    count = 1;
-    i = 0;
-    k = 0;
-    if (n < 0)
-    {
-        n *= -1;
-        k = 1;
-        i++;
-    }
-    tmp = n;
-    while (tmp > 9)
-    {
-        tmp = tmp / 10;
-        j *= 10;
-        count++;
-    }
-    str = malloc(sizeof(char) * count + 1);
-    if (str == NULL)
-        return (NULL);
-    while (j > 0)
-    {
-        c = (n / j) + 48;
-        str[i] = c;
-        n -= ((c - 48) * j);
-        j /= 10;
-        i++;
-    }
-    return(str);
+	if (nb < 0)
+		str = malloc(sizeof (char) * (i + 2));
+	else
+		str = malloc(sizeof (char) * (i + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (j > 0)
+	{
+		if (nb < 0)
+		{
+			str[0] = '-';
+			i = 1;
+			nb *= -1;
+		}
+		str[i] = ((nb / j) + 48);
+		nb -= ((nb / j) * j);
+		j /= 10;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
+
+char	*ft_itoa(int n)
+{
+	int		j;
+	int		i;
+	long	tmp;
+	long	nb;
+
+	i = 1;
+	j = 1;
+	nb = n;
+	tmp = nb;
+	if (tmp < 0)
+		tmp *= -1;
+	while (tmp > 9)
+	{
+		tmp = tmp / 10;
+		j *= 10;
+		i++;
+	}
+	return (put_in_str(j, i, nb));
+}
+
+/*
+int main()
+{
+	int i = 1337;
+	printf("%s",ft_itoa(i));
+}*/

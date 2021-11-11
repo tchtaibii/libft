@@ -23,7 +23,8 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(a, i);
 	return (a);
-}/*
+}
+/*
 int main()
 {
     char *p = ft_calloc(2,3);
