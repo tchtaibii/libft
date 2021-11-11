@@ -28,8 +28,8 @@ int	checkerset(char c, const char *str)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	char	*s;
 
 	if (!s1)
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!set)
 		return (s);
 	i = 0;
-	j = ft_strlen(s) - 1;
+	j = ft_strlen(s1) - 1;
 	while (s[i] && checkerset(s[i], set))
 		i++;
 	while (j > 0 && checkerset(s[j], set))
