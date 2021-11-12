@@ -34,9 +34,9 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - '0');
 		i++;
 	}
-        if (r >= 9223372036854775807 && o == -1)
+	if (r >= 9223372036854775807 && o == -1)
 		return (0);
 	else if (r >= 9223372036854775807 && o == 1)
-	    return (-1);
+		return (-1);
 	return (o * r);
 }

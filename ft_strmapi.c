@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 17:33:59 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/12 00:04:13 by tchtaibi         ###   ########.fr       */
+/*   Created: 2021/11/12 15:25:11 by tchtaibi          #+#    #+#             */
+/*   Updated: 2021/11/12 16:12:55 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	nb;
+	char	*new;
+	int		i;
 
-	if (n < 0)
+	if (!s)
+		return (NULL);
+	i = 0;
+	new = malloc(ft_strlen(s) + 1);
+	if (!new)
+		return (NULL);
+	while (s[i])
 	{
-		write(fd, "-", 1);
-		nb = n * -1;
+		new[i] = f(i, s[i]);
+		i++;
 	}
-	else
-		nb = n;
-	if (nb >= 10)
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putchar_fd((nb % 10 + 48), fd);
-	}
-	if (nb < 10)
-		ft_putchar_fd((nb + 48), fd);
+	new[i] = '\0';
+	return (new);
 }

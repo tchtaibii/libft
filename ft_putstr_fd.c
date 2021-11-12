@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:17:07 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/09 19:16:17 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/11 23:42:07 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
+
 	if (s)
 	{
 		i = 0;
