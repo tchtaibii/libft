@@ -32,11 +32,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	char	*s;
 
-	if (!s1)
+	if (!s1 || !set) 
 		return (NULL);
 	s = (char *)s1;
-	if (!set)
-		return (s);
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	while (s[i] && checkerset(s[i], set))
@@ -45,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j--;
 	return (ft_substr(s, i, j - i + 1));
 }
-
+/*
 int main()
 {
     char const s1[] = "";
@@ -53,4 +51,4 @@ int main()
     char *new;
     new = ft_strtrim(s1,set);
     printf("%s",new); 
-}
+}*/

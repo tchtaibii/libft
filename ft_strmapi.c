@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:25:11 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/12 21:36:24 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/13 03:40:29 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*new;
 	int		i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	i = 0;
 	new = malloc(ft_strlen(s) + 1);

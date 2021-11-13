@@ -81,11 +81,9 @@ char    **ft_split(char const *s, char c)
     int        j;
     if (!s)
         return (NULL);
-    if (!c)
-        return ((char *)s);
-    new = (NULL);
+    new = NULL;
     word = ft_word_counter(s, c);
-    new = malloc(sizeof(char *) * (word));
+    new = malloc(sizeof(char *) * ((word) + 1));
     if (!new)
         return (0);
     i = 0;
@@ -101,20 +99,21 @@ char    **ft_split(char const *s, char c)
             j++;
         }
     }
-    free(new);
+    new[j] = NULL;
+   // free(new);
     return (new);
 }
 /*
 int    main(void)
 {
     int i = 0;
-	char p[] = "aaaaaaaaaaaaaaaa+aaaaaa+aaaa+aaa+aa+aa+a";
-	char **tab = ft_split(p, '+');
+//	char p[] = "sadasdas + dsadas d + dsad  ";
+	char **tab = ft_split("olol					 ", ' ');
 
-    while (tab[i])
-    {
-        printf("%s\n", tab[i]);
-        i++;
-    }
+     while (tab[i])
+     {
+      printf("|%s|\n", tab[i]);
+         i++;
+     }printf("|%s|\n", tab[i]);
     return (0);
 }*/
