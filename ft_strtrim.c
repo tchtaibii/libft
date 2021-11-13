@@ -46,11 +46,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s, i, j - i + 1));
 }
 
-/*int main()
+int main()
 {
     char const s1[] = "";
     char const set[]  = "";
     char *new;
     new = ft_strtrim(s1,set);
     printf("%s",new); 
-}*/
+}

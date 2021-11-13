@@ -53,63 +53,63 @@ int ft_len_counter(char const *s, char sep)
     }
     return (c);
 }
-char **ft_put(char **new, char const *s, char sep)
+char *ft_put(char const *s, char sep)
 {
     int    i;
     int    j;
-    int    k;
+    char    *str;
 
-    k = 0;
     i = 0;
-    j = 0;
-    while (s[i])
+    j = ft_len_counter(s, sep);
+    str = malloc((j + 1) * sizeof(char));
+    if (!s)
+        return (NULL);
+    while (s[i] && j > 0)
     {
-        while (checker_str(sep, s[i])&& s[i])
-            i++;
-        k = 0;
-        while (!checker_str(sep, s[i]) && s[i])
-        {
-            new[j][k] = s[i];
-            k++;
-            j++;
-            i++;
-        }
-        while (checker_str(sep, s[i]) && s[i])
-            i++;
-        new[j][k] = '\0';
+        str[i] = (char)s[i];
         i++;
-        break;
+        j--;
     }
-    new[j][k] = '\0';
-    return (new);
+    str[i] = '\0';
+    return (str);
 }
-char    **ft_split(char const *s, char sep)
+char    **ft_split(char const *s, char c)
 {
     int        word;
     char    **new;
     int        i;
-
+    int        j;
+    if (!s)
+        return (NULL);
+    if (!c)
+        return ((char *)s);
     new = (NULL);
-    word = ft_word_counter(s, sep);
-    new = malloc(sizeof(char *) * (word + 1));
+    word = ft_word_counter(s, c);
+    new = malloc(sizeof(char *) * (word));
     if (!new)
         return (0);
     i = 0;
-    while (word > 0)
+    j = 0;
+    while (s[i])
     {
-        new[i] = malloc(ft_len_counter(s, sep) + 1);
-        word--;
-        i++;
+        while (checker_str(s[i], c) && s[i])
+            i++;
+        if (!checker_str(s[i], c) && s[i])
+        {
+            new[j] = ft_put(s + i, c);
+            i += ft_len_counter(s + i, c);
+            j++;
+        }
     }
-    new = ft_put(new, s, sep);
+    free(new);
     return (new);
 }
-
+/*
 int    main(void)
 {
     int i = 0;
-	char p[] = "bonjour je m'appel Arthur";
-	char **tab = ft_split(p, ' ');
+	char p[] = "aaaaaaaaaaaaaaaa+aaaaaa+aaaa+aaa+aa+aa+a";
+	char **tab = ft_split(p, '+');
 
     while (tab[i])
     {
@@ -117,4 +117,4 @@ int    main(void)
         i++;
     }
     return (0);
-}
+}*/
