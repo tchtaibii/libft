@@ -22,14 +22,16 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 	s1 = (char *) str1;
 	s2 = (char *) str2;
 	i = 0;
-	if (s2[0] == '\0')
+	if (!s1)
+		return (NULL);
+	if (!s2)
 		return (s1);
-	while (s1[i] != '\0' && i < len)
+	while (s1[i] && i < len)
 	{
 		j = 0;
-		while (s1[i + j] != '\0' && s1 [i + j] == s2[j] && i + j < len)
+		while (s1[i + j] && s1 [i + j] == s2[j] && i + j < len)
 		{
-			if (s2[j + 1] == '\0')
+			if (s2[j + 1])
 				return (&s1[i]);
 			j++;
 		}
@@ -37,3 +39,9 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 	}
 	return (0);
 }
+// int main()
+// {
+// 	char *p = NULL;
+// 	char x[] = "hahaha";
+// 	printf("%s",strnstr("","",0));
+// }

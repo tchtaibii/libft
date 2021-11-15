@@ -16,3 +16,10 @@ void	ft_bzero(void *str, size_t n)
 {
 	ft_memset(str, 0, n);
 }
+/*
+int main()
+{
+	char s28[50] = "13245678";
+	ft_bzero(s28+2, 1);
+	printf("(%s)\n", s28);
+}*/
